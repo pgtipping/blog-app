@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Posts</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/site.webmanifest" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="/fonts/css/all.min.css" rel="stylesheet" />
+    <script src="/js/script.js" defer></script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <h1>Manage Posts</h1>
+    <div class="posts-list">
+      <% posts.forEach(post => { %> <% console.log('Rendering post:',
+      post.title); %>
+      <div class="post-entry">
+        <span class="post-title"><%= post.title %></span>
+        <span class="post-date"><%= post.date %></span>
+        <% if (post.status === 'draft') { %>
+        <span class="draft-indicator">Draft</span>
+        <% } %>
+        <a
+          href="/posts/<%= post.id %>/review"
+          title="Review Post"
+          style="margin-right: 10px"
+          >&#9998;</a
+        >
+        <!-- Pencil symbol for Edit -->
+
+        <!-- Form for Delete -->
+        <form
+          class="formidb"
+          action="/posts/<%= post.id %>/delete"
+          method="POST"
+          onsubmit="event.preventDefault(); handleDelete('<%= post.id %>')"
+        >
+          <button
+            class="i-btn-delete"
+            type="submit"
+            title="Delete Post"
+            style="border: none; background: none; cursor: pointer"
+          >
+            &#128465;
+            <!-- Trashcan symbol for Delete -->
+          </button>
+        </form>
+      </div>
+      <% }) %>
+    </div>
+    <%- include('partials/footer') %>
+  </body>
+</html>

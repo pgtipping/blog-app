@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/site.webmanifest" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="/fonts/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.5/dist/quill.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.5/dist/quill.bubble.css"
+      rel="stylesheet"
+    />
+    <script src="/js/quill.js"></script>
+    <script src="/js/script.js" defer></script>
+  </head>
+  <body>
+    <!-- Include the header partial -->
+    <%- include('partials/header') %>
+    <main class="main-container">
+      <div class="post-form-container">
+        <form
+          id="postForm"
+          class="post-form"
+          action="<%= post ? '/posts/' + post.id + '/update' : '/posts/create' %>"
+          method="POST"
+          enctype="multipart/form-data"
+          data-post-id="<%= post ? post.id : '' %>"
+        >
+          <input
+            class="post-input"
+            type="text"
+            id="title"
+            name="title"
+            value="<%= post ? post.title : '' %>"
+            required
+            placeholder="Title"
+          />
+
+          <!-- Quill editor container -->
+          <div id="editor" data-initial-content="<%- post ? post.body : '' %>">
+            <%- post ? post.body : '' %>
+          </div>
+
+          <!-- Hidden input to store Quill editor content -->
+          <textarea id="postBody" name="body" style="display: none">
+<%= post ? post.body : '' %></textarea
+          >
+          <input type="hidden" value="" />
+          <div id="toolbar-container">
+            <span class="ql-formats">
+              <select class="ql-size"></select>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-bold"></button>
+              <button class="ql-italic"></button>
+              <button class="ql-underline"></button>
+              <button class="ql-strike"></button>
+            </span>
+            <span class="ql-formats">
+              <select class="ql-color"></select>
+              <select class="ql-background"></select>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-script" value="sub"></button>
+              <button class="ql-script" value="super"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-header" value="1"></button>
+              <button class="ql-header" value="2"></button>
+              <button class="ql-blockquote"></button>
+              <button class="ql-code-block"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-list" value="ordered"></button>
+              <button class="ql-list" value="bullet"></button>
+              <button class="ql-indent" value="-1"></button>
+              <button class="ql-indent" value="+1"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-link"></button>
+              <button class="ql-image"></button>
+              <button class="ql-video"></button>
+              <button class="ql-formula"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-clean"></button>
+            </span>
+          </div>
+        </form>
+
+        <% if (post) { %>
+        <form
+          action="/posts/<%= post.id %>/delete"
+          method="POST"
+          style="margin-top: 20px"
+        ></form>
+        <% } %>
+      </div>
+      <%- include('partials/notifications') %>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

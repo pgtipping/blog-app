@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<h1>Pending Posts</h1>
+<ul>
+  <% posts.forEach(post => { %>
+  <li>
+    <h2><%= post.title %></h2>
+    <p><%= post.body %></p>
+    <form method="POST" action="/admin/posts/<%= post.id %>/approve">
+      <button type="submit">Approve</button>
+    </form>
+    <form method="POST" action="/admin/posts/<%= post.id %>/reject">
+      <button type="submit">Reject</button>
+    </form>
+  </li>
+  <% }) %>
+</ul>
+<%- include('../partials/footer') %>

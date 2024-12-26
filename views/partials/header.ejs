@@ -1,0 +1,39 @@
+<!-- views/partials/header.ejs -->
+
+<header class="navbar">
+  <!-- Hamburger menu icon for smaller screens -->
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-logo">
+    <a href="/" class="nav-home-link"> <img class="l-img" src="/images/apple-touch-icon.png" alt="nav-logo"> </a>
+  </div>
+
+  <!-- Search container updated with dynamic display and responsive behavior -->
+  <div class="nav-search-container">
+    <button id="searchIcon" class="search-icon-button" onclick="toggleSearch()">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </button> 
+    <input id="searchInput" class="search-input" type="text" placeholder="Search" title="Type in a title or topic" />
+  </div>
+
+  <div id="autosaveNotification">
+    <span id="notificationMessage"></span>
+  </div>
+
+  <div class="nav-items">
+    <div class="nav-item"><a href="/posts/new"><i class="fa-regular fa-pen-to-square"></i> Write</a></div>
+    <div class="nav-item"><a href=""></a><i class="fa-regular fa-bell"></i>Notifications</a></div>
+    <div class="nav-item"><a href=""></a><i class="fa-regular fa-star"></i>Favorites</a></div>
+    <div class="nav-item"><a href=""></a><i class="fa-regular fa-user"></i>Profile</a></div>
+  </div>
+  <% if (showPublish) { %>
+    <button id="publishButton" class="nav-item pb" style="background-color: green; opacity: 0.3;" <%= !post ? 'disabled' : '' %>>
+     <span class="button-text">Publish</span> 
+    </button>
+  <% } %>
+</header>
+

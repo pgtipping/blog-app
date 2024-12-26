@@ -1,0 +1,755 @@
+/* public/css/style.css */
+
+/* General body styling for consistent fonts and colors */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif; /* A readable and clean font choice */
+  color: #333; /* Dark grey for main text for readability */
+  background-color: white; /* Light background to reduce strain */
+  line-height: 1.6; /* Spacing between lines for readability */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* This ensures the page takes up at least the viewport height */
+}
+
+/* Nav Bar and Nav Items Styling Start */
+.nav-home-link,
+.nav-logo {
+  position: static;
+}
+.nav-home-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherits the color from the parent element */
+  display: inline-block; /* Allows for width and height if needed */
+  /* Add more styles if necessary */
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  height: 70px;
+  flex-wrap: wrap;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.nav-logo,
+.l-img {
+  height: 45px; /* Replace with your logo size */
+  cursor: pointer;
+}
+
+.nav-search-container {
+  display: flex;
+  padding: 0 20px; /* Spacing on the sides */
+  position: relative;
+  align-items: center;
+  left: auto;
+}
+
+.search-icon {
+  position: relative; /* Position the icon absolutely within .nav-search */
+  /* top: 12px; */
+  left: 10px;
+  color: #b3b3b1; /*Set the color of the icon */
+  pointer-events: none; /* Prevent the icon from capturing clicks */
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.search-icon-button {
+  display: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0px;
+  background-color: white !important;
+  margin-top: 0px;
+}
+
+.search-input {
+  padding: 10px 20px 10px 40px;
+  border: none;
+  border-radius: 20px; /* Rounded borders */
+  font-size: 1.2em; /* Legible font size */
+  outline: none;
+  background: #f9f9f9;
+  color: #242424;
+  width: 380px;
+  display: block;
+}
+#autosaveNotification {
+  right: 500px;
+  z-index: 1001 !important;
+  padding: 10px;
+  color: #666; /* Text color */
+  display: none; /* Initially hidden */
+  border-radius: 5px;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Spacing between icons */
+  font-size: 1.2em;
+  position: relative;
+  /* left: 600px; */
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.nav-item i {
+  margin-right: 8px; /* Add space between icon and text */
+}
+
+.nav-item a {
+  color: inherit; /* Inherit text color from parent */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.nav-item a:hover {
+  text-decoration: underline; /* Optionally add underline on hover */
+}
+
+/* Search icon inside the input - assuming you have an icon font like FontAwesome */
+.nav-search-container input::placeholder {
+  content: "\f002"; /* FontAwesome search icon */
+}
+
+/* Nav Bar and Nav Items Styling end */
+
+.p {
+  font-size: 18px;
+  display: flex;
+  padding-left: 30px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Styling for blockquotes within posts */
+blockquote {
+  border-left: 4px solid #007bff; /* A blue left border for distinction */
+  padding-left: 20px; /* Space between the border and text */
+  margin: 20px 0; /* Vertical spacing around the blockquote */
+  color: #555; /* Slightly lighter text color for emphasis */
+  font-style: italic; /* Italicize for traditional blockquote formatting */
+}
+
+h2 a {
+  color: #007bff; /* A blue color for links */
+  text-decoration: none; /* Removes the underline */
+  transition: color 0.3s ease; /* Smooth color transition for hover effect */
+}
+
+h2 a:hover,
+h2 a:focus {
+  color: #0056b3; /* Darker blue on hover/focus */
+  text-decoration: underline; /* Adds underline on hover/focus for clarity */
+}
+
+.home-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin-left: 10px;
+}
+
+/* Container for each blog post */
+.post-container {
+  border: 1px solid #ddd; /* Adds a light border */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  padding: 20px; /* Space inside the container */
+  margin-bottom: 20px; /* Space between each post */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  animation: fadeIn 0.5s ease-out;
+  text-align: left;
+  width: 90%;
+  max-width: 680px;
+  font-size: 1.2rem;
+}
+
+/* Adds a shadow effect on hover to lift the post */
+.post-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bh {
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 55px;
+  letter-spacing: -0.02em;
+}
+.bb {
+  line-height: 35px;
+  margin-top: 1em;
+  font-size: 25px;
+}
+
+.post-content {
+  max-width: 740px; /* Sets the max-width as per your requirement */
+  text-align: left; /* Aligns text to the left within the container */
+  width: 100%; /* Ensures the container takes up the full width up to max-width */
+  margin-top: 100px;
+  word-wrap: break-word;
+  word-break: break-word;
+  padding: 0 25px;
+}
+
+/* postForm.ejs styling */
+
+.main-container {
+  display: flex;
+  margin-top: 50px;
+  padding-bottom: 50px; /* This adds some space around the content */
+  flex: 1; /* Flex property to take up available space */
+  /* margin: 0 auto;  Centering content */
+  min-height: 100%;
+  flex-direction: column; /* Stack elements vertically on small screens */
+  align-items: center; /* Center items horizontally */
+}
+.post-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+form,
+.post-form {
+  /* Ensure the form container is fluid and adapts to the screen size */
+  max-width: 950px;
+  width: 100%; /* Use 100% width for smaller screens */
+  display: flex;
+  flex-direction: column;
+}
+.post-author-date p {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 5px;
+}
+/* nav button styling  */
+.pb {
+  font-size: 1em;
+}
+
+form.pb {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+button.pb {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 0px;
+}
+/* Input and Textarea styling */
+
+input::placeholder {
+  color: #b3b3b1;
+}
+
+/* Quill editor styling start*/
+
+.ql-editor.ql-blank::before {
+  color: #0a0a07; /* Adjust the placeholder text color */
+}
+
+#editor {
+  border: none !important;
+  font-size: 2rem;
+  height: 100%;
+}
+#editor::placeholder {
+  color: #b3b3b1;
+}
+
+/* .ql-toolbar {
+  border: none !important;
+  position: absolute;
+} */
+
+/* Quill editor styling end */
+
+.post-input {
+  padding: 10px;
+  border: none;
+  font-size: 3.5rem; /* Large font size for title */
+  outline: none !important;
+  word-wrap: break-word;
+  width: inherit;
+  word-break: break-all;
+}
+
+.post-textarea {
+  resize: vertical; /* Allows vertical resizing, good for longer text */
+  line-height: 1.58;
+  letter-spacing: -0.003em;
+  min-height: 100vh; /* Adequate space for body text */
+  font-size: 1.5rem; /* Comfortable font size for body text */
+  font-family: "Open Sans", sans-serif;
+  overflow-block: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.post-add-button {
+  top: 60px;
+  background: none;
+  border: 0.5px solid;
+  font-size: 1em;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  border-color: rgb(101, 100, 100);
+  padding: 2px 6px;
+  border-radius: 100px;
+  width: fit-content;
+  width: -moz-fit-content;
+  left: -45px;
+  color: black;
+  height: 32px;
+  width: 32px;
+}
+
+.post-add-button:hover {
+  background-color: white !important;
+}
+
+.fa-plus {
+  position: relative;
+}
+
+/* postForm.ejs Styling end */
+
+/* Button styling */
+button {
+  /* width: 100%; */
+  padding: 10px;
+  margin-top: 10px; /* Space above the button */
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+button:active {
+  transform: scale(0.95); /* Slightly shrink the button when clicked */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Base button styling */
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none; /* In case you use <a> tags for buttons */
+  display: inline-block; /* Aligns text inside button */
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Slight lift */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Additional button styles for different actions */
+.formidb {
+  display: contents !important;
+}
+
+.i-btn-delete {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: larger;
+  display: contents;
+  color: #333;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+.btn-back {
+  background-color: #6c757d;
+}
+
+.btn-back:hover {
+  background-color: #5a6268;
+}
+
+/* Base button styling */
+.btn {
+  font-size: 16px; /* Readable font size */
+  /* Other styles remain the same */
+}
+
+footer {
+  position: relative; /* Position the footer at the bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Dark background for contrast */
+  color: #fff; /* Light text for readability */
+  padding: 10px 0; /* Padding for spacing */
+  text-align: center; /* Center the text */
+  font-size: 0.8rem; /* Smaller font size for less prominent footer text */
+  margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+footer a {
+  color: #a9a9a9; /* Light grey for links, ensuring readability */
+  text-decoration: none; /* No underline for a cleaner look */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+footer a:hover {
+  color: #fff; /* White color on hover for visibility */
+}
+
+/* Main title styling */
+h1.h {
+  color: #333;
+  margin-top: 1em; /* Adds space above the title */
+  text-align: center;
+  display: block;
+  /* padding-left: 35px; */
+  font-size: 2.5em;
+}
+
+h1.page-title {
+  font-size: 2rem; /* Large size for prominence */
+  color: #007bff; /* A blue that matches the theme for consistency */
+  margin-bottom: 20px; /* Spacing below the title for separation from content */
+  text-align: center; /* Center-aligned for focus */
+}
+
+/* If using a subheading or description beneath the main title */
+h2.subheading {
+  font-size: 1.5rem; /* Slightly smaller than the main title */
+  color: #6c757d; /* A softer color for contrast with the main title */
+  margin-bottom: 20px;
+  text-align: center; /* Maintain alignment with the main title */
+}
+
+.post-title {
+  font-size: 1.5rem; /* Sets a larger font size for the title */
+  font-weight: bold; /* Makes the title bold */
+  color: #333; /* A darker color for prominence */
+  margin-right: 15px; /* Adds space between the title and the date */
+}
+
+.post-date {
+  font-size: 0.9rem; /* Slightly smaller font size than the title */
+  color: #666; /* A lighter color for a subtler appearance */
+  margin-right: 10px; /* Space before the edit/delete symbols */
+}
+
+/* You might also want to style the container for individual posts */
+.post-entry {
+  display: flex;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: start; /* Aligns content to the start of the flex container */
+  padding: 10px; /* Padding inside each post container */
+  border-bottom: 1px solid #eee; /* Adds a light border below each post for separation */
+}
+
+/* Additional hover effect for titles if they are links */
+.post-title a:hover {
+  text-decoration: underline; /* Underline on hover for links */
+}
+
+.notification-container {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 20px; /* Adjust based on your layout */
+  left: 50%;
+  transform: translateX(-50%);
+  /* z-index: 1000; Ensure it's above other content */
+  background-color: #007bff; /* Theme color */
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.notification-show {
+  display: block; /* Show the notification */
+  /* animation: fadeOut 4s forwards; Fades out the notification */
+}
+
+#publishButton[disabled] {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+#deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+#deleteButton[disabled] {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+#deleteButton i {
+  display: none; /* Hide the icon on larger screens */
+}
+
+#publishButton {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-top: 0px;
+}
+.button-group {
+  display: flex;
+  gap: 10px; /* Adjust the gap to your preference */
+  align-items: center;
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    justify-content: flex-start; /* Align navbar items to the left */
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+  .navbar > *:not(.button-group) {
+    margin-right: auto;
+  }
+  .button-group {
+    margin-left: auto; /* Push the button group to the right */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust this breakpoint as necessary */
+  .navbar {
+    padding-left: 10px;
+    padding-right: 25px;
+  }
+  .nav-logo {
+    position: absolute;
+    left: 55px;
+  }
+  .nav-search-container {
+    left: 40px;
+    flex-grow: 1; /* Allows the search bar to take up the available space */
+  }
+  .hamburger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px; /* Adjust the width as necessary */
+    height: 25px; /* Adjust the height as necessary */
+  }
+
+  .hamburger-menu span {
+    display: block;
+    height: 3px; /* Height of each bar */
+    width: 100%;
+    background: #333; /* Color of the hamburger icon */
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Transform the hamburger into an "X" */
+  .hamburger-menu.active span:nth-child(1) {
+    -webkit-transform: translateY(12px) rotate(45deg);
+    -moz-transform: translateY(12px) rotate(45deg);
+    -ms-transform: translateY(12px) rotate(45deg);
+    -o-transform: translateY(12px) rotate(45deg);
+    transform: translateY(12px) rotate(45deg);
+  }
+
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(3) {
+    -webkit-transform: translateY(-5px) rotate(-51deg);
+    -moz-transform: translateY(-5px) rotate(-51deg);
+    -ms-transform: translateY(-5px) rotate(-51deg);
+    -o-transform: translateY(-5px) rotate(-51deg);
+    transform: translateY(-5px) rotate(-51deg);
+  }
+
+  .hamburger-menu.active ~ .nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the items vertically */
+    width: 100%; /* Take full width of the container */
+    position: absolute; /* Positioned absolutely relative to navbar */
+    top: 90px; /* Below the navbar */
+    left: 0; /* Starting from the left edge */
+    right: 0; /* Spanning to the right edge */
+    background: #fff; /* Match the navbar background */
+    z-index: 999; /* Ensure it stacks above other content */
+  }
+
+  .nav-items {
+    display: none; /* Hide by default */
+  }
+  .search-input {
+    display: none; /* Hide the search input on smaller screens */
+    width: 350px;
+    position: fixed;
+  }
+  .search-icon-button {
+    display: block; /* Show search icon button on smaller screens */
+    z-index: 1002;
+  }
+  .btn {
+    padding: 12px 24px; /* Slightly larger padding on small devices */
+    font-size: 18px; /* Slightly larger font size for readability */
+  }
+  h1.h {
+    padding-left: 15px;
+    font-size: 1.5em;
+  }
+  .bh {
+    font-size: 30px;
+  }
+  .bb {
+    font-size: 20px;
+  }
+  form {
+    width: 90vw; /* Use 95% width for smaller screens */
+  }
+
+  .post-input,
+  .post-textarea {
+    width: 100%; /*Fullwidthminuspaddingandborder*/
+  }
+  .post-add-button {
+    display: none;
+  }
+  .home-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on small screens */
+    align-items: flex-start;
+    padding: 20px 40px 50px 15px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    margin-left: 0px;
+  }
+  .post-container {
+    font-size: 1rem;
+  }
+  #publishButton,
+  #deleteButton {
+    background-color: transparent !important;
+    border: none;
+    font-size: 2em; /* Adjust the icon size */
+    width: auto; /* Allow the button to shrink to fit the icon size */
+    padding: 0px;
+    align-items: center; /* Center the icon in the button */
+    justify-content: center;
+    display: flex;
+    z-index: 1003;
+  }
+  #publishButton:before {
+    content: "\f0c7"; /* FontAwesome icon for publish (floppy disk) */
+    font-family: "FontAwesome";
+  }
+  #deleteButton i {
+    display: inline; /* Show the icon */
+    margin-right: 0; /* Remove margin if any */
+  }
+  #publishButton .button-text,
+  #deleteButton .button-text {
+    display: none; /* Hide the text on small screens */
+  }
+  #publishButton {
+    color: green !important;
+  }
+  #deleteButton {
+    color: red !important;
+  }
+}
+
+/* Example of a responsive container using Flexbox */
+
+@media (max-width: 431px) {
+  .search-input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 320px) {
+  .nav-search-container {
+    left: -20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
